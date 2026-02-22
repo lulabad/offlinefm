@@ -1,0 +1,94 @@
+{
+    "app": {
+        "name": "Offline.fm",
+        "tagline": "Deine Musik, offline."
+    },
+    "nav": {
+        "library": "Bibliothek",
+        "albums": "Alben",
+        "artists": "Künstler",
+        "playlists": "Wiedergabelisten",
+        "settings": "Einstellungen"
+    },
+    "library": {
+        "openFolder": "Ordner öffnen",
+        "scanning": "Dateien werden gescannt…",
+        "parsing": "Metadaten werden gelesen… ({{done}}/{{total}})",
+        "empty": "Noch keine Musik. Öffne einen Ordner, um loszulegen.",
+        "tracks": "Titel",
+        "albums": "Alben",
+        "artists": "Künstler",
+        "search": "Bibliothek durchsuchen…",
+        "sortBy": "Sortieren nach",
+        "title": "Titel",
+        "artist": "Künstler",
+        "album": "Album",
+        "duration": "Dauer",
+        "year": "Jahr",
+        "unknownArtist": "Unbekannter Künstler",
+        "unknownAlbum": "Unbekanntes Album"
+    },
+    "player": {
+        "play": "Abspielen",
+        "pause": "Pause",
+        "next": "Nächster",
+        "previous": "Vorheriger",
+        "shuffle": "Zufallswiedergabe",
+        "repeat": "Wiederholen",
+        "repeatOne": "Einen wiederholen",
+        "repeatAll": "Alle wiederholen",
+        "repeatOff": "Wiederholen aus",
+        "volume": "Lautstärke",
+        "mute": "Stumm",
+        "unmute": "Ton an",
+        "queue": "Warteschlange",
+        "nowPlaying": "Aktuelle Wiedergabe",
+        "noTrack": "Kein Titel ausgewählt"
+    },
+    "eq": {
+        "title": "Equalizer",
+        "presets": "Voreinstellungen",
+        "flat": "Flach",
+        "rock": "Rock",
+        "pop": "Pop",
+        "jazz": "Jazz",
+        "classical": "Klassik",
+        "bassBoost": "Bass-Verstärkung",
+        "trebleBoost": "Höhen-Verstärkung",
+        "custom": "Benutzerdefiniert",
+        "save": "Voreinstellung speichern",
+        "reset": "Zurücksetzen"
+    },
+    "playlist": {
+        "create": "Neue Wiedergabeliste",
+        "rename": "Umbenennen",
+        "delete": "Löschen",
+        "addTo": "Zur Wiedergabeliste hinzufügen",
+        "playNext": "Als Nächstes abspielen",
+        "removeFrom": "Aus Wiedergabeliste entfernen",
+        "empty": "Diese Wiedergabeliste ist leer.",
+        "name": "Name der Wiedergabeliste",
+        "confirmDelete": "Möchtest du \"{{name}}\" wirklich löschen?"
+    },
+    "theme": {
+        "light": "Hell",
+        "dark": "Dunkel",
+        "system": "System"
+    },
+    "shortcuts": {
+        "title": "Tastenkürzel",
+        "playPause": "Abspielen / Pause",
+        "seekForward": "5s vorspulen",
+        "seekBackward": "5s zurückspulen",
+        "nextTrack": "Nächster Titel",
+        "prevTrack": "Vorheriger Titel",
+        "volumeUp": "Lauter",
+        "volumeDown": "Leiser",
+        "mute": "Stumm / Ton an",
+        "shuffle": "Zufallswiedergabe umschalten",
+        "repeat": "Wiederholung wechseln",
+        "search": "Suche fokussieren",
+        "openFolder": "Ordner öffnen",
+        "showShortcuts": "Tastenkürzel anzeigen"
+    }
+}

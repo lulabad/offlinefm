@@ -1,0 +1,94 @@
+{
+    "app": {
+        "name": "Offline.fm",
+        "tagline": "Your music, offline."
+    },
+    "nav": {
+        "library": "Library",
+        "albums": "Albums",
+        "artists": "Artists",
+        "playlists": "Playlists",
+        "settings": "Settings"
+    },
+    "library": {
+        "openFolder": "Open Folder",
+        "scanning": "Scanning files…",
+        "parsing": "Reading metadata… ({{done}}/{{total}})",
+        "empty": "No music yet. Open a folder to get started.",
+        "tracks": "Tracks",
+        "albums": "Albums",
+        "artists": "Artists",
+        "search": "Search library…",
+        "sortBy": "Sort by",
+        "title": "Title",
+        "artist": "Artist",
+        "album": "Album",
+        "duration": "Duration",
+        "year": "Year",
+        "unknownArtist": "Unknown Artist",
+        "unknownAlbum": "Unknown Album"
+    },
+    "player": {
+        "play": "Play",
+        "pause": "Pause",
+        "next": "Next",
+        "previous": "Previous",
+        "shuffle": "Shuffle",
+        "repeat": "Repeat",
+        "repeatOne": "Repeat One",
+        "repeatAll": "Repeat All",
+        "repeatOff": "Repeat Off",
+        "volume": "Volume",
+        "mute": "Mute",
+        "unmute": "Unmute",
+        "queue": "Queue",
+        "nowPlaying": "Now Playing",
+        "noTrack": "No track selected"
+    },
+    "eq": {
+        "title": "Equalizer",
+        "presets": "Presets",
+        "flat": "Flat",
+        "rock": "Rock",
+        "pop": "Pop",
+        "jazz": "Jazz",
+        "classical": "Classical",
+        "bassBoost": "Bass Boost",
+        "trebleBoost": "Treble Boost",
+        "custom": "Custom",
+        "save": "Save Preset",
+        "reset": "Reset"
+    },
+    "playlist": {
+        "create": "New Playlist",
+        "rename": "Rename",
+        "delete": "Delete",
+        "addTo": "Add to Playlist",
+        "playNext": "Play Next",
+        "removeFrom": "Remove from Playlist",
+        "empty": "This playlist is empty.",
+        "name": "Playlist Name",
+        "confirmDelete": "Are you sure you want to delete \"{{name}}\"?"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "shortcuts": {
+        "title": "Keyboard Shortcuts",
+        "playPause": "Play / Pause",
+        "seekForward": "Seek Forward 5s",
+        "seekBackward": "Seek Backward 5s",
+        "nextTrack": "Next Track",
+        "prevTrack": "Previous Track",
+        "volumeUp": "Volume Up",
+        "volumeDown": "Volume Down",
+        "mute": "Mute / Unmute",
+        "shuffle": "Toggle Shuffle",
+        "repeat": "Cycle Repeat",
+        "search": "Focus Search",
+        "openFolder": "Open Folder",
+        "showShortcuts": "Show Shortcuts"
+    }
+}
