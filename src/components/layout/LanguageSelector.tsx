@@ -15,7 +15,7 @@ export function LanguageSelector() {
   return (
     <button
       onClick={toggleLanguage}
-      className="px-2 py-1 rounded-lg text-xs font-semibold text-secondary hover:text-primary 
+      className="px-2 py-1 rounded-lg text-xs font-semibold text-secondary hover:text-accent 
                  hover:bg-surface-hover transition-all uppercase tracking-wide"
       title={language === 'en' ? 'Deutsch' : 'English'}
     >

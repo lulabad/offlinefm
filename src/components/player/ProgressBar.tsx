@@ -28,13 +28,13 @@ export function ProgressBar() {
       <div
         ref={barRef}
         onClick={handleClick}
-        className="flex-1 h-1 bg-[var(--color-border)] rounded-full cursor-pointer group relative"
+        className="flex-1 h-1.5 bg-(--color-border) rounded-full cursor-pointer group relative"
       >
         <div
           className="h-full bg-accent rounded-full relative transition-[width] duration-100"
           style={{ width: `${progress}%` }}
         >
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-md" />
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-accent rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-[var(--shadow-glow)]" />
         </div>
       </div>
       <span className="text-[10px] text-secondary w-10 tabular-nums">{formatTime(duration)}</span>

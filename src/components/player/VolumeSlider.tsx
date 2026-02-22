@@ -54,7 +54,7 @@ export function VolumeSlider() {
     <div className="flex items-center gap-2">
       <button
         onClick={toggleMute}
-        className="p-1 text-secondary hover:text-primary transition-colors"
+        className="p-1 text-secondary hover:text-accent transition-colors"
         title={muted ? t('player.unmute') : t('player.mute')}
       >
         <VolumeIcon />
@@ -66,7 +66,7 @@ export function VolumeSlider() {
         step={0.01}
         value={displayVolume}
         onChange={(e) => setVolume(parseFloat(e.target.value))}
-        className="w-24 h-1 accent-[var(--color-accent)]"
+        className="w-24 h-1 accent-(--color-accent)"
         title={t('player.volume')}
       />
     </div>

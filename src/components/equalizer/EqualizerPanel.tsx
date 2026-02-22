@@ -15,10 +15,10 @@ export function EqualizerPanel() {
   if (!isOpen) return null;
 
   return (
-    <div className="absolute bottom-28 right-4 z-40 bg-surface border border-app rounded-xl shadow-2xl p-5 w-[480px] transition-theme">
+    <div className="absolute bottom-28 right-4 z-40 bg-surface border border-app rounded-xl shadow-elevated p-5 w-[480px] transition-theme animate-fade-in-up">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-semibold text-primary">{t('eq.title')}</h3>
+        <h3 className="text-sm font-semibold text-primary font-display">{t('eq.title')}</h3>
         <button
           onClick={toggleOpen}
           className="text-secondary hover:text-primary transition-colors"

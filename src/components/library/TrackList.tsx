@@ -50,7 +50,7 @@ export function TrackList({ tracks, onPlayTrack }: TrackListProps) {
   return (
     <div className="flex flex-col h-full">
       {/* Header row */}
-      <div className="flex items-center px-4 py-2 border-b border-app text-xs font-medium text-secondary uppercase tracking-wider">
+      <div className="flex items-center px-4 py-2 border-b border-app text-xs font-semibold text-secondary uppercase tracking-wider font-display">
         <div className="w-10 shrink-0">#</div>
         {columns.map((col) => (
           <button

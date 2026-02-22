@@ -22,9 +22,9 @@ export function WaveformDisplay() {
     // never for audible playback (we never call ws.play()).
     const ws = WaveSurfer.create({
       container: containerRef.current,
-      waveColor: 'rgba(99, 102, 241, 0.3)',
-      progressColor: 'rgba(99, 102, 241, 0.8)',
-      cursorColor: 'rgba(99, 102, 241, 1)',
+      waveColor: 'rgba(200, 117, 51, 0.25)',
+      progressColor: 'rgba(200, 117, 51, 0.7)',
+      cursorColor: 'rgba(200, 117, 51, 1)',
       cursorWidth: 2,
       barWidth: 2,
       barGap: 1,
@@ -104,7 +104,7 @@ export function WaveformDisplay() {
     <div className="w-full px-4">
       <div
         ref={containerRef}
-        className={`w-full rounded-lg overflow-hidden transition-opacity ${isReady ? 'opacity-100' : 'opacity-30'}`}
+        className={`w-full rounded-xl overflow-hidden transition-opacity duration-300 ${isReady ? 'opacity-100' : 'opacity-20'}`}
       />
     </div>
   );

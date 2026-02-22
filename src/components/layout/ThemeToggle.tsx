@@ -39,7 +39,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg text-secondary hover:text-primary hover:bg-surface-hover transition-all"
+      className="p-2 rounded-lg text-secondary hover:text-accent hover:bg-surface-hover transition-all"
       title={theme}
     >
       {icons[theme]}

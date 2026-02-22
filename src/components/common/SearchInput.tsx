@@ -31,7 +31,7 @@ export function SearchInput({ value, onChange }: SearchInputProps) {
         placeholder={t('library.search')}
         className="w-full pl-9 pr-3 py-2 text-sm bg-surface border border-app rounded-lg 
                    text-primary placeholder:text-secondary focus:outline-none focus:ring-2 
-                   focus:ring-[var(--color-accent)] focus:border-transparent transition-all"
+                   focus:ring-(--color-accent)/40 focus:border-(--color-accent) transition-all"
       />
       {value && (
         <button

@@ -41,7 +41,9 @@ export function TrackRow({ track, index, isActive, onPlay }: TrackRowProps) {
         {/* Index / playing indicator */}
         <div className="w-10 shrink-0 text-secondary text-xs">
           {isActive ? (
-            <span className="text-accent font-bold">♫</span>
+            <svg className="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+            </svg>
           ) : (
             <span className="group-hover:hidden">{index + 1}</span>
           )}
@@ -61,7 +63,19 @@ export function TrackRow({ track, index, isActive, onPlay }: TrackRowProps) {
             />
           ) : (
             <div className="w-8 h-8 rounded bg-surface-hover flex items-center justify-center shrink-0">
-              <span className="text-xs text-secondary">♫</span>
+              <svg
+                className="w-3.5 h-3.5 text-secondary"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"
+                />
+              </svg>
             </div>
           )}
           <span className="truncate font-medium">{track.title}</span>

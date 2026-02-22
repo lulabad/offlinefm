@@ -26,9 +26,9 @@ export function Header() {
           <button
             key={v.key}
             onClick={() => setView(v.key)}
-            className={`px-3 py-1 text-sm rounded-md transition-all ${
+            className={`px-3 py-1.5 text-sm font-display rounded-md transition-all ${
               view === v.key
-                ? 'bg-accent text-on-accent font-medium'
+                ? 'bg-accent text-on-accent font-semibold shadow-soft'
                 : 'text-secondary hover:text-primary'
             }`}
           >

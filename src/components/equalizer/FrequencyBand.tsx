@@ -18,7 +18,7 @@ export function FrequencyBand({ label, gain, onChange }: FrequencyBandProps) {
         step={0.5}
         value={gain}
         onChange={(e) => onChange(parseFloat(e.target.value))}
-        className="h-28 w-6 accent-[var(--color-accent)]"
+        className="h-28 w-6 accent-(--color-accent)"
         style={{
           writingMode: 'vertical-lr',
           direction: 'rtl',

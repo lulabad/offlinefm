@@ -19,8 +19,8 @@ export function PlaybackControls() {
       {/* Shuffle */}
       <button
         onClick={toggleShuffle}
-        className={`p-1.5 rounded-lg transition-colors ${
-          shuffleMode ? 'text-accent' : 'text-secondary hover:text-primary'
+        className={`p-1.5 rounded-lg transition-all ${
+          shuffleMode ? 'text-accent' : 'text-secondary hover:text-primary hover:bg-surface-hover'
         }`}
         title={t('player.shuffle')}
       >
@@ -37,7 +37,7 @@ export function PlaybackControls() {
       {/* Previous */}
       <button
         onClick={previous}
-        className="p-2 text-secondary hover:text-primary transition-colors"
+        className="p-2 text-secondary hover:text-primary hover:bg-surface-hover rounded-lg transition-all active-press"
         title={t('player.previous')}
       >
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@ export function PlaybackControls() {
       {/* Play/Pause */}
       <button
         onClick={togglePlay}
-        className="p-3 bg-accent text-on-accent rounded-full hover:bg-accent-hover transition-all shadow-lg hover:shadow-xl hover:scale-105"
+        className="p-3 bg-accent text-on-accent rounded-full hover:bg-accent-hover transition-all shadow-soft hover:shadow-elevated hover:scale-105 active:scale-95"
         title={isPlaying ? t('player.pause') : t('player.play')}
       >
         {isPlaying ? (
@@ -65,7 +65,7 @@ export function PlaybackControls() {
       {/* Next */}
       <button
         onClick={next}
-        className="p-2 text-secondary hover:text-primary transition-colors"
+        className="p-2 text-secondary hover:text-primary hover:bg-surface-hover rounded-lg transition-all active-press"
         title={t('player.next')}
       >
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -76,8 +76,10 @@ export function PlaybackControls() {
       {/* Repeat */}
       <button
         onClick={cycleRepeat}
-        className={`p-1.5 rounded-lg transition-colors relative ${
-          repeatMode !== 'off' ? 'text-accent' : 'text-secondary hover:text-primary'
+        className={`p-1.5 rounded-lg transition-all relative ${
+          repeatMode !== 'off'
+            ? 'text-accent'
+            : 'text-secondary hover:text-primary hover:bg-surface-hover'
         }`}
         title={
           repeatMode === 'off'

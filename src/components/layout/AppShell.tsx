@@ -18,7 +18,7 @@ export function AppShell({ children, playerBar }: AppShellProps) {
         <Header />
 
         {/* Content */}
-        <main className="flex-1 overflow-y-auto">{children}</main>
+        <main className="flex-1 overflow-y-auto animate-fade-in">{children}</main>
 
         {/* Player bar at bottom */}
         {playerBar}

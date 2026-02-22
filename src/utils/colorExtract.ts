@@ -13,7 +13,7 @@ export async function extractDominantColor(imageUrl: string): Promise<string> {
       canvas.height = size;
       const ctx = canvas.getContext('2d');
       if (!ctx) {
-        resolve('#6366f1');
+        resolve('#c87533');
         return;
       }
       ctx.drawImage(img, 0, 0, size, size);

@@ -22,7 +22,7 @@ export function PlaylistTrackList({ playlist, tracks }: PlaylistTrackListProps) 
     <div className="p-4">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-xl font-bold text-primary">{playlist.name}</h2>
+          <h2 className="text-xl font-bold text-primary font-display">{playlist.name}</h2>
           <p className="text-sm text-secondary">{tracks.length} tracks</p>
         </div>
         <div className="flex items-center gap-2">
@@ -31,7 +31,7 @@ export function PlaylistTrackList({ playlist, tracks }: PlaylistTrackListProps) 
               const name = prompt(t('playlist.name'), playlist.name);
               if (name) renamePlaylist(playlist.id, name);
             }}
-            className="p-2 text-secondary hover:text-primary rounded-lg hover:bg-surface-hover transition-colors"
+            className="p-2 text-secondary hover:text-accent rounded-lg hover:bg-surface-hover transition-colors"
             title={t('playlist.rename')}
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,7 +87,19 @@ export function PlaylistTrackList({ playlist, tracks }: PlaylistTrackListProps) 
                 />
               ) : (
                 <div className="w-8 h-8 rounded bg-surface-hover flex items-center justify-center">
-                  <span className="text-xs text-secondary">♫</span>
+                  <svg
+                    className="w-3.5 h-3.5 text-secondary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"
+                    />
+                  </svg>
                 </div>
               )}
               <div className="flex-1 min-w-0">

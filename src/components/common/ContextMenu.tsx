@@ -42,7 +42,7 @@ export function ContextMenu({ items, children }: ContextMenuProps) {
       {isOpen && (
         <div
           ref={menuRef}
-          className="fixed z-50 bg-surface border border-app rounded-lg shadow-xl py-1 min-w-[180px]"
+          className="fixed z-50 bg-surface border border-app rounded-xl shadow-elevated py-1.5 min-w-[180px] animate-fade-in-up"
           style={{ left: position.x, top: position.y }}
         >
           {items.map((item, i) =>
@@ -55,7 +55,7 @@ export function ContextMenu({ items, children }: ContextMenuProps) {
                   item.onClick();
                   setIsOpen(false);
                 }}
-                className={`w-full flex items-center gap-2 px-3 py-1.5 text-sm text-left hover:bg-surface-hover transition-colors ${
+                className={`w-full flex items-center gap-2 px-3 py-1.5 text-sm text-left hover:bg-surface-hover transition-all rounded-md mx-0.5 ${
                   item.danger ? 'text-danger' : 'text-primary'
                 }`}
               >

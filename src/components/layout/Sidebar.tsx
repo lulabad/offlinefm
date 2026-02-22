@@ -22,9 +22,60 @@ export function Sidebar() {
   const [newName, setNewName] = useState('');
 
   const navItems = [
-    { key: 'tracks' as const, label: t('nav.library'), icon: '♫' },
-    { key: 'albums' as const, label: t('nav.albums'), icon: '💿' },
-    { key: 'artists' as const, label: t('nav.artists'), icon: '🎤' },
+    {
+      key: 'tracks' as const,
+      label: t('nav.library'),
+      icon: (
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"
+          />
+        </svg>
+      ),
+    },
+    {
+      key: 'albums' as const,
+      label: t('nav.albums'),
+      icon: (
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      ),
+    },
+    {
+      key: 'artists' as const,
+      label: t('nav.artists'),
+      icon: (
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+          />
+        </svg>
+      ),
+    },
   ];
 
   const handleCreate = () => {
@@ -36,10 +87,15 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="w-56 bg-sidebar border-r border-app flex flex-col h-full transition-theme">
+    <aside className="w-56 bg-sidebar border-r border-app flex flex-col h-full transition-theme shadow-soft">
       {/* Logo */}
-      <div className="px-4 py-4 border-b border-app">
-        <h1 className="text-lg font-bold text-accent">♫ Offline.fm</h1>
+      <div className="px-4 py-5 border-b border-app">
+        <h1 className="font-display text-lg font-bold text-accent tracking-tight flex items-center gap-2">
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+          </svg>
+          Offline.fm
+        </h1>
       </div>
 
       {/* Open Folder */}
@@ -87,13 +143,13 @@ export function Sidebar() {
               setView(item.key);
               setActivePlaylist(null);
             }}
-            className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${
+            className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all ${
               view === item.key && !activePlaylistId
-                ? 'bg-accent/10 text-accent font-medium'
+                ? 'bg-accent/10 text-accent font-medium sidebar-nav-active'
                 : 'text-secondary hover:text-primary hover:bg-surface-hover'
             }`}
           >
-            <span>{item.icon}</span>
+            {item.icon}
             {item.label}
           </button>
         ))}
@@ -138,7 +194,7 @@ export function Sidebar() {
               placeholder={t('playlist.name')}
               className="w-full px-2 py-1 text-sm bg-surface border border-app rounded 
                          text-primary placeholder:text-secondary focus:outline-none 
-                         focus:ring-1 focus:ring-[var(--color-accent)]"
+                         focus:ring-1 focus:ring-(--color-accent)"
             />
           </div>
         )}
@@ -150,7 +206,7 @@ export function Sidebar() {
               onClick={() => setActivePlaylist(pl.id)}
               className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-all ${
                 activePlaylistId === pl.id
-                  ? 'bg-accent/10 text-accent font-medium'
+                  ? 'bg-accent/10 text-accent font-medium sidebar-nav-active'
                   : 'text-secondary hover:text-primary hover:bg-surface-hover'
               }`}
             >

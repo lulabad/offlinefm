@@ -47,15 +47,24 @@ export function AlbumGrid({ albums, tracks }: AlbumGridProps) {
             <img
               src={selectedAlbum.coverArtUrl}
               alt=""
-              className="w-40 h-40 rounded-lg object-cover shadow-lg"
+              className="w-40 h-40 rounded-xl object-cover shadow-elevated ring-1 ring-(--color-border)"
             />
           ) : (
-            <div className="w-40 h-40 rounded-lg bg-surface-hover flex items-center justify-center">
-              <span className="text-4xl text-secondary">💿</span>
+            <div className="w-40 h-40 rounded-xl bg-surface-hover flex items-center justify-center">
+              <svg
+                className="w-12 h-12 text-secondary opacity-40"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
             </div>
           )}
           <div>
-            <h2 className="text-2xl font-bold text-primary">{selectedAlbum.name}</h2>
+            <h2 className="text-2xl font-bold text-primary font-display">{selectedAlbum.name}</h2>
             <p className="text-secondary">{selectedAlbum.artist}</p>
             {selectedAlbum.year && <p className="text-secondary text-sm">{selectedAlbum.year}</p>}
             <p className="text-secondary text-sm">{albumTracks.length} tracks</p>
@@ -93,21 +102,32 @@ export function AlbumGrid({ albums, tracks }: AlbumGridProps) {
           key={`${album.name}|||${album.artist}`}
           onClick={() => setSelectedAlbum(album)}
           onDoubleClick={() => handleAlbumPlay(album)}
-          className="group text-left rounded-lg p-3 hover:bg-surface-hover transition-all"
+          className="group text-left rounded-xl p-3 hover:bg-surface-hover transition-all hover-lift"
         >
           {album.coverArtUrl ? (
             <img
               src={album.coverArtUrl}
               alt=""
-              className="w-full aspect-square rounded-lg object-cover shadow-md group-hover:shadow-lg transition-shadow"
+              className="w-full aspect-square rounded-xl object-cover shadow-soft group-hover:shadow-elevated transition-shadow ring-1 ring-(--color-border)"
               loading="lazy"
             />
           ) : (
-            <div className="w-full aspect-square rounded-lg bg-surface flex items-center justify-center border border-app">
-              <span className="text-4xl text-secondary opacity-50">💿</span>
+            <div className="w-full aspect-square rounded-xl bg-surface flex items-center justify-center border border-app">
+              <svg
+                className="w-10 h-10 text-secondary opacity-40"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
             </div>
           )}
-          <h3 className="mt-2 text-sm font-medium text-primary truncate">{album.name}</h3>
+          <h3 className="mt-2 text-sm font-medium text-primary truncate font-display">
+            {album.name}
+          </h3>
           <p className="text-xs text-secondary truncate">{album.artist}</p>
         </button>
       ))}

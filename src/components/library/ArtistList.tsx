@@ -33,7 +33,7 @@ export function ArtistList({ artists, tracks }: ArtistListProps) {
           Back
         </button>
 
-        <h2 className="text-2xl font-bold text-primary mb-1">{selectedArtist.name}</h2>
+        <h2 className="text-2xl font-bold text-primary mb-1 font-display">{selectedArtist.name}</h2>
         <p className="text-secondary text-sm mb-4">
           {selectedArtist.albumNames.length} albums · {artistTracks.length} tracks
         </p>
@@ -54,7 +54,19 @@ export function ArtistList({ artists, tracks }: ArtistListProps) {
                 />
               ) : (
                 <div className="w-8 h-8 rounded bg-surface-hover flex items-center justify-center">
-                  <span className="text-xs text-secondary">♫</span>
+                  <svg
+                    className="w-3.5 h-3.5 text-secondary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"
+                    />
+                  </svg>
                 </div>
               )}
               <div className="flex-1 min-w-0">

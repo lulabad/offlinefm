@@ -34,7 +34,7 @@ export function ShortcutsOverlay() {
         {shortcuts.map((s) => (
           <div key={s.keys} className="flex items-center justify-between py-1">
             <span className="text-sm text-primary">{t(s.action)}</span>
-            <kbd className="px-2 py-0.5 bg-surface-hover text-secondary text-xs rounded border border-app font-mono">
+            <kbd className="px-2 py-0.5 bg-surface-hover text-secondary text-xs rounded-md border border-app font-mono shadow-soft">
               {s.keys}
             </kbd>
           </div>
