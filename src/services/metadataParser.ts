@@ -1,4 +1,4 @@
-import * as mm from 'music-metadata-browser';
+import { parseBlob, type IAudioMetadata } from 'music-metadata';
 import type { Track, AudioFileEntry } from '@/types';
 
 /**
@@ -19,10 +19,11 @@ function generateId(relativePath: string): string {
 export async function parseAudioFile(entry: AudioFileEntry): Promise<Track> {
   const { file, handle, relativePath } = entry;
 
-  let metadata: mm.IAudioMetadata;
+  let metadata: IAudioMetadata;
   try {
-    metadata = await mm.parseBlob(file);
-  } catch {
+    metadata = await parseBlob(file);
+  } catch (err) {
+    console.error(`Failed to parse metadata for ${relativePath}:`, err);
     // If parsing fails, return minimal track info
     return {
       id: generateId(relativePath),
@@ -42,7 +43,7 @@ export async function parseAudioFile(entry: AudioFileEntry): Promise<Track> {
   let coverArtUrl: string | undefined;
   if (common.picture && common.picture.length > 0) {
     const pic = common.picture[0];
-    const blob = new Blob([pic.data], { type: pic.format });
+    const blob = new Blob([new Uint8Array(pic.data)], { type: pic.format });
     coverArtUrl = URL.createObjectURL(blob);
   }
 
