@@ -25,7 +25,7 @@ export function VolumeSlider() {
     (e: React.PointerEvent) => {
       e.preventDefault();
       draggingRef.current = true;
-      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+      e.currentTarget.setPointerCapture(e.pointerId);
       updateVolumeFromEvent(e.clientX);
     },
     [updateVolumeFromEvent],
@@ -39,8 +39,18 @@ export function VolumeSlider() {
     [updateVolumeFromEvent],
   );
 
-  const onPointerUp = useCallback(() => {
+  const onPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     draggingRef.current = false;
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    }
+  }, []);
+
+  const onPointerCancel = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    draggingRef.current = false;
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    }
   }, []);
 
   const VolumeIcon = () => {
@@ -109,6 +119,7 @@ export function VolumeSlider() {
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
+        onPointerCancel={onPointerCancel}
         onKeyDown={(e) => {
           if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
             e.preventDefault();
