@@ -9,6 +9,7 @@ interface AlbumGridProps {
 
 export function AlbumGrid({ albums, tracks }: AlbumGridProps) {
   const playTrack = usePlayerStore((s) => s.playTrack);
+  const currentTrackId = usePlayerStore((s) => s.currentTrack?.id);
   const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
 
   const handleAlbumPlay = (album: Album) => {
@@ -72,24 +73,38 @@ export function AlbumGrid({ albums, tracks }: AlbumGridProps) {
         </div>
 
         <div className="space-y-1">
-          {albumTracks.map((track, i) => (
-            <button
-              key={track.id}
-              onClick={() => playTrack(track, albumTracks, i)}
-              className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-hover transition-colors text-left"
-            >
-              <span className="text-secondary text-sm w-6 text-right">
-                {track.trackNumber ?? i + 1}
-              </span>
-              <span className="text-primary flex-1 truncate">{track.title}</span>
-              <span className="text-secondary text-xs">
-                {Math.floor(track.duration / 60)}:
-                {Math.floor(track.duration % 60)
-                  .toString()
-                  .padStart(2, '0')}
-              </span>
-            </button>
-          ))}
+          {albumTracks.map((track, i) => {
+            const isActive = track.id === currentTrackId;
+            return (
+              <button
+                key={track.id}
+                onClick={() => playTrack(track, albumTracks, i)}
+                className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg group transition-colors text-left ${
+                  isActive ? 'bg-accent/10 text-accent' : 'hover:bg-surface-hover'
+                }`}
+              >
+                <span className="text-sm w-6 text-right flex items-center justify-end">
+                  {isActive ? (
+                    <svg className="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                    </svg>
+                  ) : (
+                    <>
+                      <span className="group-hover:hidden text-secondary">{track.trackNumber ?? i + 1}</span>
+                      <span className="hidden group-hover:inline text-accent">▶</span>
+                    </>
+                  )}
+                </span>
+                <span className={`flex-1 truncate ${isActive ? 'text-accent' : 'text-primary'}`}>{track.title}</span>
+                <span className="text-secondary text-xs">
+                  {Math.floor(track.duration / 60)}:
+                  {Math.floor(track.duration % 60)
+                    .toString()
+                    .padStart(2, '0')}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
     );

@@ -9,6 +9,7 @@ interface ArtistListProps {
 
 export function ArtistList({ artists, tracks }: ArtistListProps) {
   const playTrack = usePlayerStore((s) => s.playTrack);
+  const currentTrackId = usePlayerStore((s) => s.currentTrack?.id);
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
 
   if (selectedArtist) {
@@ -39,48 +40,65 @@ export function ArtistList({ artists, tracks }: ArtistListProps) {
         </p>
 
         <div className="space-y-1">
-          {artistTracks.map((track, i) => (
-            <button
-              key={track.id}
-              onClick={() => playTrack(track, artistTracks, i)}
-              className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-surface-hover transition-colors text-left"
-            >
-              {track.coverArtUrl ? (
-                <img
-                  src={track.coverArtUrl}
-                  alt=""
-                  className="w-8 h-8 rounded object-cover"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-8 h-8 rounded bg-surface-hover flex items-center justify-center">
-                  <svg
-                    className="w-3.5 h-3.5 text-secondary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"
-                    />
-                  </svg>
+          {artistTracks.map((track, i) => {
+            const isActive = track.id === currentTrackId;
+            return (
+              <button
+                key={track.id}
+                onClick={() => playTrack(track, artistTracks, i)}
+                className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg group transition-colors text-left ${
+                  isActive ? 'bg-accent/10 text-accent' : 'hover:bg-surface-hover'
+                }`}
+              >
+                <span className="text-sm w-6 text-right flex items-center justify-end">
+                  {isActive ? (
+                    <svg className="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                    </svg>
+                  ) : (
+                    <>
+                      <span className="group-hover:hidden text-secondary">{i + 1}</span>
+                      <span className="hidden group-hover:inline text-accent">▶</span>
+                    </>
+                  )}
+                </span>
+                {track.coverArtUrl ? (
+                  <img
+                    src={track.coverArtUrl}
+                    alt=""
+                    className="w-8 h-8 rounded object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-8 h-8 rounded bg-surface-hover flex items-center justify-center">
+                    <svg
+                      className="w-3.5 h-3.5 text-secondary"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"
+                      />
+                    </svg>
+                  </div>
+                )}
+                <div className="flex-1 min-w-0">
+                  <span className={`text-sm truncate block ${isActive ? 'text-accent' : 'text-primary'}`}>{track.title}</span>
+                  <span className="text-secondary text-xs truncate block">{track.album}</span>
                 </div>
-              )}
-              <div className="flex-1 min-w-0">
-                <span className="text-primary text-sm truncate block">{track.title}</span>
-                <span className="text-secondary text-xs truncate block">{track.album}</span>
-              </div>
-              <span className="text-secondary text-xs">
-                {Math.floor(track.duration / 60)}:
-                {Math.floor(track.duration % 60)
-                  .toString()
-                  .padStart(2, '0')}
-              </span>
-            </button>
-          ))}
+                <span className="text-secondary text-xs">
+                  {Math.floor(track.duration / 60)}:
+                  {Math.floor(track.duration % 60)
+                    .toString()
+                    .padStart(2, '0')}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
     );

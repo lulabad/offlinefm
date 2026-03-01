@@ -77,7 +77,18 @@ export function PlaylistTrackList({ playlist, tracks }: PlaylistTrackListProps) 
               }`}
               onDoubleClick={() => playTrack(track, tracks, i)}
             >
-              <span className="text-secondary text-xs w-6 text-right">{i + 1}</span>
+              <span className="text-xs w-6 text-right flex items-center justify-end">
+                {track.id === currentTrackId ? (
+                  <svg className="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                  </svg>
+                ) : (
+                  <>
+                    <span className="group-hover:hidden text-secondary">{i + 1}</span>
+                    <span className="hidden group-hover:inline text-accent">▶</span>
+                  </>
+                )}
+              </span>
               {track.coverArtUrl ? (
                 <img
                   src={track.coverArtUrl}
